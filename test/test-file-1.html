@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+
+<head>
+	<meta http-equiv="Content-type" content="text/html; charset=UTF-8" />
+	<meta name="viewport" content="width=device-width" />
+	<style type="text/css">
+		@import url(/vrsc/1510784424/bootstrap/css/bootstrap.css);
+		@import url(/vrsc/1510784424/jquery-ui/css/smoothness/jquery-ui-1.10.3.custom.css);
+		@import url(/css/app.css);
+	</style>
+</head>
+<!--[if lt IE 7 ]> <body class="ie6"> <![endif]-->
+<!--[if IE 7 ]>    <body class="ie7"> <![endif]-->
+<!--[if IE 8 ]>    <body class="ie8"> <![endif]-->
+<!--[if IE 9 ]>    <body class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!-->
+
+<body class="modern">
+	<!--<![endif]-->
+
+
+
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<ul class="nav navbar-nav">
+					<li><a href="/menu">Admin</a></li>
+					<li><a href="/">Site</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+	<div class="container">
+
+
+		<h1>Test Profile</h1>
+		<form action="/business-profile/1" method="post">
+
+			<label for="businessName">Business name</label>
+			<input class="form-control" type="text" id="businessName" placeholder="" value="Test Business" name="businessName"  />
+			<label for="businessName">Business name</label>
+			<input class="form-control" type="text" id="businessName" placeholder="" name="businessName" />
+			<label for="solution">Solution</label>
+			<textarea class="form-control" type="text" id="solution" placeholder="" name="solution">Test Solution</textarea>
+			<label >Time and labor</label>
+			<input class="form-control" type="checkbox" value="one"  placeholder="" name="timeAndLabor" checked="checked" />
+			<input class="form-control" type="checkbox" value="two"  placeholder="" name="timeAndLabor" checked="checked" />
+			<input class="form-control" type="checkbox" value="two"  placeholder="" name="timeAndLabor" />
+			<input class="form-control" type="checkbox" placeholder="" name="timeAndLabor2" checked="checked" />
+
+			<input class="form-control" type="radio" value="one"  placeholder="" name="timeAndLabor3" checked="checked" />
+			<input class="form-control" type="radio" value="two"  placeholder="" name="timeAndLabor3" />
+
+			<label >When date</label>
+			<input class="form-control" type="date" id="whenDate" placeholder="" name="whenDate" />
+			
+			<label >When time</label>
+			<input class="form-control" type="time" placeholder="" name="whenDate" />
+
+			<label >When date-time</label>
+			<input class="form-control" type="datetime-local" id="whenDate" placeholder="" name="whenDate" />
+			
+			<label >Then date</label>
+			<input class="form-control" type="date" id="whenDate" placeholder="" name="thenDate" />
+			
+			<label >Then time</label>
+			<input class="form-control" type="time" placeholder="" name="thenDate" />
+			
+			<label for="videoUrl">Video</label>
+			<select class="form-control" id="videoUrl" name="videoUrl">
+				<option value="" >-- no video --</option>
+				<option value="bgc" selected="selected" >bgc</option>
+				<option value="clements">clements</option>
+				<option value="clements-6m">clements-6m</option>
+				<option value="home-small-new">home-small-new</option>
+				<option value="mayo">mayo</option>
+				<option value="smart-hr-home-2">smart-hr-home-2</option>
+				<option value="smart-hr-home-small">smart-hr-home-small</option>
+				<option value="smart-hr-home-small-new">smart-hr-home-small-new</option>
+				<option value="smart-hr-training">smart-hr-training</option></select>
+			<br/>
+			<button class="btn btn-primary" type="submit">Save</button>
+
+		</form>
+
+
+	</div>
+	<script type="text/javascript" src="/vrsc/1510784424/page-editor/ckeditor/ckeditor.js"></script>
+	<script type="text/javascript" src="/js/app.js"></script>
+	<script type="text/javascript" src="/vrsc/1510784424/jquery-ui/js/jquery-ui-1.10.3.custom.js"></script>
+	<script type="text/javascript" src="/vrsc/1510784424/page-editor/js/previewimg.jquery.js"></script>
+
+</body>
+
+</html>

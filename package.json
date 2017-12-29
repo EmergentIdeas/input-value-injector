@@ -4,7 +4,8 @@
   "description": "injects values into html input tag text without parsing the html document",
   "main": "input-value-injector.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/mocha/bin/mocha",
+    "testDebug": "node_modules/mocha/bin/mocha --inspect --inspect-brk"
   },
   "repository": {
     "type": "git",
@@ -22,5 +23,12 @@
   "bugs": {
     "url": "https://github.com/EmergentIdeas/input-value-injector/issues"
   },
-  "homepage": "https://github.com/EmergentIdeas/input-value-injector#readme"
+  "homepage": "https://github.com/EmergentIdeas/input-value-injector#readme",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1"
+  },
+  "dependencies": {
+    "moment": "^2.19.2"
+  }
 }
