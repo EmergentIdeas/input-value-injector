@@ -47,7 +47,6 @@ let injectValues = function(text, values) {
 				
 				let newVal = fetchValue(values, name)
 				if(type === 'date') {
-					debugger
 					if(newVal) {
 						try {
 							newVal = moment(newVal).format('YYYY-MM-DD')
@@ -71,7 +70,6 @@ let injectValues = function(text, values) {
 				
 				let replacementText
 				if(newVal == null) {
-					debugger
 					replacementText = ''
 				}
 				else {
