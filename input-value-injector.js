@@ -41,7 +41,7 @@ let injectValues = function(text, values) {
 			let type = (r ? r[1] : 'text').toLowerCase()
 			
 			
-			if(type === 'text' || type === 'date' || type === 'time' || type === 'datetime-local') {
+			if(type === 'text' || type === 'hidden' || type === 'date' || type === 'time' || type === 'datetime-local') {
 				r = item.match(valAttrPattern)
 				let value = r ? r[1] : null
 				

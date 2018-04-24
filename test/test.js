@@ -86,6 +86,14 @@ describe("standard parsing and execution", function() {
 			)
 		)
 		
+		assert.equal(
+			'<input class="form-control" type="hidden" id="businessName" placeholder="" name="businessName" value="Emergent Ideas" />',
+			valueInjector(
+				'<input class="form-control" type="hidden" id="businessName" placeholder="" name="businessName" />',
+				testData1
+			)
+		)
+		
 	})
 
 	it('checkbox values', function() {
