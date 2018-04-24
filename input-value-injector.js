@@ -83,7 +83,7 @@ let injectValues = function(text, values) {
 					}
 				}
 				else {
-					item = item.slice(0, -3) + replacementText + ' />'
+					item = item.slice(0, -2) + replacementText + ' />'
 				}
 				
 				result += item
@@ -103,7 +103,7 @@ let injectValues = function(text, values) {
 					else {
 						// so we should have it checked
 						if(!item.match(checkedAttrPattern)) {
-							item = item.slice(0, -3) + ' checked="checked" />'  
+							item = item.slice(0, -2) + ' checked="checked" />'  
 						}
 						// if the above were not true, it's because it's already checked
 					}
@@ -117,7 +117,7 @@ let injectValues = function(text, values) {
 					else {
 						// so we should have it checked
 						if(!item.match(checkedAttrPattern)) {
-							item = item.slice(0, -3) + ' checked="checked" />'  
+							item = item.slice(0, -2) + ' checked="checked" />'  
 						}
 						// if the above were not true, it's because it's already checked
 					}
@@ -140,7 +140,7 @@ let injectValues = function(text, values) {
 					else {
 						// so we should have it checked
 						if(!item.match(checkedAttrPattern)) {
-							item = item.slice(0, -3) + ' checked="checked" />'  
+							item = item.slice(0, -2) + ' checked="checked" />'  
 						}
 						// if the above were not true, it's because it's already checked
 					}
@@ -154,7 +154,7 @@ let injectValues = function(text, values) {
 					else {
 						// so we should have it checked
 						if(!item.match(checkedAttrPattern)) {
-							item = item.slice(0, -3) + ' checked="checked" />'  
+							item = item.slice(0, -2) + ' checked="checked" />'  
 						}
 						// if the above were not true, it's because it's already checked
 					}

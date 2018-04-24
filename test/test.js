@@ -55,7 +55,7 @@ describe("standard parsing and execution", function() {
 		)
 		
 		assert.equal(
-			'<input class="form-control" type="text" id="businessName" placeholder="" name="businessName" value="Emergent Ideas" />',
+			'<input class="form-control" type="text" id="businessName" placeholder="" name="businessName"  value="Emergent Ideas" />',
 			valueInjector(
 				'<input class="form-control" type="text" id="businessName" placeholder="" name="businessName" />',
 				testData1
@@ -79,7 +79,7 @@ describe("standard parsing and execution", function() {
 		)
 		
 		assert.equal(
-			'<input class="form-control" type="text" id="businessName" placeholder="" name="businessNames" />',
+			'<input class="form-control" type="text" id="businessName" placeholder="" name="businessNames"  />',
 			valueInjector(
 				'<input class="form-control" type="text" id="businessName" placeholder="" name="businessNames" />',
 				testData1
@@ -87,19 +87,26 @@ describe("standard parsing and execution", function() {
 		)
 		
 		assert.equal(
-			'<input class="form-control" type="hidden" id="businessName" placeholder="" name="businessName" value="Emergent Ideas" />',
+			'<input class="form-control" type="hidden" id="businessName" placeholder="" name="businessName"  value="Emergent Ideas" />',
 			valueInjector(
 				'<input class="form-control" type="hidden" id="businessName" placeholder="" name="businessName" />',
 				testData1
 			)
 		)
 		
+		assert.equal(
+			'<input class="form-control" type="hidden" id="businessName" placeholder="" name="businessName" value="Emergent Ideas" />',
+			valueInjector(
+				'<input class="form-control" type="hidden" id="businessName" placeholder="" name="businessName"/>',
+				testData1
+			)
+		)
 	})
 
 	it('checkbox values', function() {
 		
 		assert.equal(
-			'<input class="form-control" type="checkbox" id="timeAndLabor2" placeholder="" name="timeAndLabor2" checked="checked" />',
+			'<input class="form-control" type="checkbox" id="timeAndLabor2" placeholder="" name="timeAndLabor2"  checked="checked" />',
 			valueInjector(
 				'<input class="form-control" type="checkbox" id="timeAndLabor2" placeholder="" name="timeAndLabor2" />',
 				testData1
@@ -113,7 +120,7 @@ describe("standard parsing and execution", function() {
 			)
 		)
 		assert.equal(
-			'<input class="form-control" type="checkbox" id="timeAndLabor" placeholder="" value="two" name="timeAndLabor" checked="checked" />',
+			'<input class="form-control" type="checkbox" id="timeAndLabor" placeholder="" value="two" name="timeAndLabor"  checked="checked" />',
 			valueInjector(
 				'<input class="form-control" type="checkbox" id="timeAndLabor" placeholder="" value="two" name="timeAndLabor" />',
 				testData1
@@ -131,7 +138,7 @@ describe("standard parsing and execution", function() {
 	it('radio values', function() {
 		
 		assert.equal(
-			'<input class="form-control" type="radio" id="timeAndLabor2" placeholder="" name="timeAndLabor2" checked="checked" />',
+			'<input class="form-control" type="radio" id="timeAndLabor2" placeholder="" name="timeAndLabor2"  checked="checked" />',
 			valueInjector(
 				'<input class="form-control" type="radio" id="timeAndLabor2" placeholder="" name="timeAndLabor2" />',
 				testData1
@@ -145,7 +152,7 @@ describe("standard parsing and execution", function() {
 			)
 		)
 		assert.equal(
-			'<input class="form-control" type="radio" id="timeAndLabor" placeholder="" value="two" name="timeAndLabor" checked="checked" />',
+			'<input class="form-control" type="radio" id="timeAndLabor" placeholder="" value="two" name="timeAndLabor"  checked="checked" />',
 			valueInjector(
 				'<input class="form-control" type="radio" id="timeAndLabor" placeholder="" value="two" name="timeAndLabor" />',
 				testData1
