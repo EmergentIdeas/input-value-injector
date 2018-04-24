@@ -1,6 +1,6 @@
 {
   "name": "input-value-injector",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "injects values into html input tag text without parsing the html document",
   "main": "input-value-injector.js",
   "scripts": {
