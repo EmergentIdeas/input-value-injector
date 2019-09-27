@@ -77,10 +77,15 @@ let injectValues = function(text, values) {
 					replacementText = ''
 				}
 				else {
+					if(newVal && newVal.indexOf('"') > -1) {
+						newVal = newVal.replace('"', '&quot;')
+					}
+					
 					newVal = newVal || ''
 					replacementText = ' value="' + newVal + '"'
 				}
-				
+
+
 				if(value != null) {
 					if(newVal != null) {
 						item = item.replace(valAttrPattern, replacementText)
