@@ -45,30 +45,49 @@ let injectValues = function(text, values) {
 			let type = (r ? r[1] : 'text').toLowerCase()
 			
 			
-			if(type === 'text' || type === 'hidden' || type === 'date' || type === 'time' || type === 'datetime-local') {
+			if(type === 'text' || type === 'hidden' || type === 'date' || type === 'time' || type === 'datetime-local'
+			|| type === 'search' || type === 'email' || type === 'number' || type === 'tel' || type === 'url' 
+			|| type === 'month' || type === 'week' || type === 'color' || type === 'week'
+			) {
 				r = item.match(valAttrPattern)
 				let value = r ? r[1] : null
 				
 				let newVal = fetchValue(values, name)
 				if(type === 'date') {
 					if(newVal) {
+						let orgValue = newVal
 						try {
 							newVal = moment(newVal).format('YYYY-MM-DD')
-						} catch(e) {}
+						} catch(e) {
+							newVal = orgValue
+						}
+						if(newVal == 'Invalid date') {
+							newVal = orgValue
+						}
 					}
 				}
 				else if(type === 'time') {
 					if(newVal) {
+						let orgValue = newVal
 						try {
 							newVal = moment(newVal).format('HH:mm')
-						} catch(e) {}
+						} catch(e) {
+							newVal = orgValue
+						}
+						if(newVal == 'Invalid date') {
+							newVal = orgValue
+						}
 					}
 				}
 				else if(type === 'datetime-local') {
 					if(newVal) {
+						let orgValue = newVal
 						try {
 							newVal = moment(newVal).format('YYYY-MM-DDTHH:mm')
 						} catch(e) {}
+						if(newVal == 'Invalid date') {
+							newVal = orgValue
+						}
 					}
 				}
 				
