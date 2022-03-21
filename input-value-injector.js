@@ -92,10 +92,13 @@ let injectValues = function(text, values) {
 				}
 				
 				let replacementText
-				if(newVal == null) {
+				if(newVal === null || newVal === undefined) {
 					replacementText = ''
 				}
 				else {
+					if(typeof newVal != 'string') {
+						newVal = '' + newVal
+					}
 					if(newVal && newVal.indexOf('"') > -1) {
 						newVal = newVal.replace('"', '&quot;')
 					}
