@@ -26,6 +26,36 @@ describe("standard parsing and execution", function() {
 		assert.equal(true, true)
 	})
 	
+	it('sgml style inputs', function() {
+		
+		assert.equal(
+			'<input type="text" name="businessName" value="Emergent Ideas" />',
+			valueInjector(
+				'<input type="text" name="businessName">',
+				testData1
+			)
+		)
+		assert.equal(
+			'<input type="text" name="businessName" />',
+			valueInjector(
+				'<input type="text" name="businessName">',
+				{
+					businessName: null
+				}
+			)
+		)
+		assert.equal(
+			'<input type="text" name="businessName" />\n' +
+			'<input type="text" name="businessName" />'
+			,
+			valueInjector(
+`<input type="text" name="businessName">
+<input type="text" name="businessName">`,
+				{
+				}
+			)
+		)
+	})
 	it('text values', function() {
 		
 		assert.equal(
