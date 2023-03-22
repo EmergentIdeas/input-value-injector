@@ -165,6 +165,42 @@ describe("standard parsing and execution", function() {
 		)
 		
 	})	
+	it('checkbox array values', function() {
+		let checkData = {
+			group: 'two'
+		}
+		
+		assert.equal(
+			`
+				<input type="checkbox" name="group" value="one" />
+				<input type="checkbox" name="group" value="two"  checked="checked" />
+			`,
+			valueInjector(
+			`
+				<input type="checkbox" name="group" value="one" checked="checked" />
+				<input type="checkbox" name="group" value="two" />
+			`,
+				checkData	
+			)
+		)
+		
+		checkData = {
+			group: ['two']
+		}
+		assert.equal(
+			`
+				<input type="checkbox" name="group" value="one" />
+				<input type="checkbox" name="group" value="two"  checked="checked" />
+			`,
+			valueInjector(
+			`
+				<input type="checkbox" name="group" value="one" checked="checked" />
+				<input type="checkbox" name="group" value="two" />
+			`,
+				checkData	
+			)
+		)
+	})	
 	it('radio values', function() {
 		
 		assert.equal(
