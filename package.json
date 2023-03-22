@@ -26,7 +26,7 @@
   "homepage": "https://github.com/EmergentIdeas/input-value-injector#readme",
   "devDependencies": {
     "chai": "^4.1.2",
-    "mocha": "^4.0.1"
+    "mocha": "^10.2.0"
   },
   "dependencies": {
     "moment": "^2.19.2"
