@@ -7,6 +7,24 @@ let typeAttrPattern = /\stype=["'](.*?)["']/i
 let inputPattern = /(<input.*?>)/i
 let checkedAttrPattern = /\schecked(=["'](.*?)["'])?/i
 
+let attributeEscapes = {
+	'&': '&amp;'
+	, '"': '&quot;'
+	, '<': '&lt;'
+}
+
+function escapeAttributeValue(attr) {
+	if(attr === null || attr === undefined) {
+		attr = ''
+	}
+	if(typeof attr !== 'string') {
+		attr = '' + attr
+	}
+	for(let [key, value] of Object.entries(attributeEscapes)) {
+		attr = attr.split(key).join(value)
+	}
+	return attr
+}
 
 function fetchValue(obj, path) {
 	try {
@@ -96,14 +114,7 @@ let injectValues = function(text, values) {
 					replacementText = ''
 				}
 				else {
-					if(typeof newVal != 'string') {
-						newVal = '' + newVal
-					}
-					if(newVal) {
-						newVal = newVal.split('"').join('&quot;')
-					}
-					
-					newVal = newVal || ''
+					newVal = escapeAttributeValue(newVal)
 					replacementText = ' value="' + newVal + '"'
 				}
 

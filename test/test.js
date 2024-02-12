@@ -143,6 +143,16 @@ describe("standard parsing and execution", function() {
 				}
 			)
 		)
+
+		assert.equal(
+			'<input class="form-control" type="text" id="businessName" placeholder="" value="&quot;quotesMc&quot;Quoteson\'s&lt;&amp;" name="businessName"  />',
+			valueInjector(
+				'<input class="form-control" type="text" id="businessName" placeholder="" value="Test Business" name="businessName"  />',
+				{ 
+					businessName: '"quotesMc"Quoteson\'s<&'
+				}
+			)
+		)
 	})
 		
 
