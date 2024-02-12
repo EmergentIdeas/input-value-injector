@@ -132,6 +132,19 @@ describe("standard parsing and execution", function() {
 			)
 		)
 	})
+	it('text values, special characters', function() {
+		
+		assert.equal(
+			'<input class="form-control" type="text" id="businessName" placeholder="" value="&quot;quotesMc&quot;Quoteson\'s" name="businessName"  />',
+			valueInjector(
+				'<input class="form-control" type="text" id="businessName" placeholder="" value="Test Business" name="businessName"  />',
+				{ 
+					businessName: '"quotesMc"Quoteson\'s'
+				}
+			)
+		)
+	})
+		
 
 	it('checkbox values', function() {
 		

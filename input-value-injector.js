@@ -99,8 +99,8 @@ let injectValues = function(text, values) {
 					if(typeof newVal != 'string') {
 						newVal = '' + newVal
 					}
-					if(newVal && newVal.indexOf('"') > -1) {
-						newVal = newVal.replace('"', '&quot;')
+					if(newVal) {
+						newVal = newVal.split('"').join('&quot;')
 					}
 					
 					newVal = newVal || ''
