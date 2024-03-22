@@ -60,18 +60,21 @@ function escapeAttributeValue(attr) {
 	return attr
 }
 
-function fetchValue(obj, path) {
-	try {
-		with(obj) {
-			try {
-				return eval(path)
-			}
-			catch(e) {}
+let evalFunction = new Function('data',
+	`with (data.context) {
+		try {
+			return eval(data.expression);
+		} catch (e) {
+			return null;
 		}
-		return obj[path]
-	}
-	catch(e) {}
-	return null
+	}`
+)
+
+function fetchValue(obj, path) {
+	return evalFunction.call(this, {
+		context: obj
+		, expression: path
+	})
 }
 
 function isOrContains(target, possible) {
