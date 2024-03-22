@@ -1,5 +1,39 @@
 
-const moment = require('moment')
+function makeDate(date) {
+	if(date instanceof Date) {
+		return date
+	}
+	return new Date(date)
+}
+
+function pad(value, len, pad) {
+	value = '' + value
+	while(value.length < len) {
+		value = pad + value
+	}
+	return value
+}
+
+function formatDate(date) {
+	date = makeDate(date)
+	let year = date.getFullYear()
+	let month = pad(date.getMonth() + 1, 2, '0')
+	let day = pad(date.getDate(), 2, '0')
+
+	return `${year}-${month}-${day}`
+}
+function formatTime(date) {
+	date = makeDate(date)
+	let hour = pad(date.getHours(), 2, '0')
+	let minute = pad(date.getMinutes(), 2, '0')
+	let sec = pad(date.getSeconds(), 2, '0')
+	let milli = pad(date.getMilliseconds(), 4, '0')
+	return `${hour}:${minute}`
+}
+
+function formatCombined(date) {
+	return formatDate(date) + 'T' + formatTime(date)
+}
 
 let nameAttrPattern = /\sname=["'](.*?)["']/i
 let valAttrPattern = /\svalue=["'](.*?)["']/i
@@ -75,7 +109,7 @@ let injectValues = function(text, values) {
 					if(newVal) {
 						let orgValue = newVal
 						try {
-							newVal = moment(newVal).format('YYYY-MM-DD')
+							newVal = formatDate(newVal)
 						} catch(e) {
 							newVal = orgValue
 						}
@@ -88,7 +122,7 @@ let injectValues = function(text, values) {
 					if(newVal) {
 						let orgValue = newVal
 						try {
-							newVal = moment(newVal).format('HH:mm')
+							newVal = formatTime(newVal)
 						} catch(e) {
 							newVal = orgValue
 						}
@@ -101,7 +135,7 @@ let injectValues = function(text, values) {
 					if(newVal) {
 						let orgValue = newVal
 						try {
-							newVal = moment(newVal).format('YYYY-MM-DDTHH:mm')
+							newVal = formatCombined(newValue)
 						} catch(e) {}
 						if(newVal == 'Invalid date') {
 							newVal = orgValue

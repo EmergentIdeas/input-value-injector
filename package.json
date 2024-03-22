@@ -29,6 +29,8 @@
     "mocha": "^4.0.1"
   },
   "dependencies": {
-    "moment": "^2.19.2"
-  }
+  },
+  "files": [
+	"input-value-injector.js"
+  ]
 }
