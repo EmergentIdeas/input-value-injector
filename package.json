@@ -1,6 +1,6 @@
 {
   "name": "input-value-injector",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "injects values into html input tag text without parsing the html document",
   "main": "input-value-injector.js",
   "scripts": {
@@ -29,8 +29,9 @@
     "mocha": "^4.0.1"
   },
   "dependencies": {
+    "value-injector-common": "^1.0.0"
   },
   "files": [
-	"input-value-injector.js"
+    "input-value-injector.js"
   ]
 }

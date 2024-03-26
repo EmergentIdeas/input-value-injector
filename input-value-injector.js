@@ -1,3 +1,12 @@
+const {
+	evalFunction
+	, attributeEscapes
+	, fetchValue
+	, isOrContains
+	, escForRegex
+	, escapeAttributeValue
+} = require('value-injector-common')
+
 
 function makeDate(date) {
 	if(date instanceof Date) {
@@ -40,51 +49,6 @@ let valAttrPattern = /\svalue=["'](.*?)["']/i
 let typeAttrPattern = /\stype=["'](.*?)["']/i
 let inputPattern = /(<input.*?>)/i
 let checkedAttrPattern = /\schecked(=["'](.*?)["'])?/i
-
-let attributeEscapes = {
-	'&': '&amp;'
-	, '"': '&quot;'
-	, '<': '&lt;'
-}
-
-function escapeAttributeValue(attr) {
-	if(attr === null || attr === undefined) {
-		attr = ''
-	}
-	if(typeof attr !== 'string') {
-		attr = '' + attr
-	}
-	for(let [key, value] of Object.entries(attributeEscapes)) {
-		attr = attr.split(key).join(value)
-	}
-	return attr
-}
-
-let evalFunction = new Function('data',
-	`with (data.context) {
-		try {
-			return eval(data.expression);
-		} catch (e) {
-			return null;
-		}
-	}`
-)
-
-function fetchValue(obj, path) {
-	return evalFunction.call(this, {
-		context: obj
-		, expression: path
-	})
-}
-
-function isOrContains(target, possible) {
-	if(Array.isArray(possible)) {
-		return possible.includes(target)
-	}
-	else {
-		return target == possible
-	}
-}
 
 
 let injectValues = function(text, values) {
