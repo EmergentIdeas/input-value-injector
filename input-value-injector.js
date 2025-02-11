@@ -12,6 +12,18 @@ function makeDate(date) {
 	if(date instanceof Date) {
 		return date
 	}
+	
+	if(typeof date === 'string') {
+		if(date.indexOf('T') > -1) {
+			// this is probably a full date time string with time zone
+			return new Date(date)
+		}
+		else {
+			// This is just a raw date and won't be back converted correctly if not shifted
+			// to gmt
+			return new Date(then.getTime() + (new Date().getTimezoneOffset() * 60 * 1000))
+		}
+	}
 	return new Date(date)
 }
 
@@ -24,6 +36,9 @@ function pad(value, len, pad) {
 }
 
 function formatDate(date) {
+	if(typeof date === 'string') {
+		return date
+	}
 	date = makeDate(date)
 	let year = date.getFullYear()
 	let month = pad(date.getMonth() + 1, 2, '0')
@@ -32,6 +47,9 @@ function formatDate(date) {
 	return `${year}-${month}-${day}`
 }
 function formatTime(date) {
+	if(typeof date === 'string') {
+		return date
+	}
 	date = makeDate(date)
 	let hour = pad(date.getHours(), 2, '0')
 	let minute = pad(date.getMinutes(), 2, '0')
@@ -41,6 +59,9 @@ function formatTime(date) {
 }
 
 function formatCombined(date) {
+	if(typeof date === 'string') {
+		return date
+	}
 	return formatDate(date) + 'T' + formatTime(date)
 }
 
@@ -102,8 +123,11 @@ let injectValues = function(text, values) {
 					if(newVal) {
 						let orgValue = newVal
 						try {
-							newVal = formatCombined(newValue)
-						} catch(e) {}
+							newVal = formatCombined(newVal)
+						} catch(e) {
+						}
+						
+
 						if(newVal == 'Invalid date') {
 							newVal = orgValue
 						}

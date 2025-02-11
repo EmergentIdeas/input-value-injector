@@ -131,27 +131,75 @@ describe("standard parsing and execution", function() {
 				testData1
 			)
 		)
+
+	})
+	it('dates', function() {
+		assert.equal(
+			valueInjector(
+				'<input type="date" name="when"/>',
+				{
+					when: '2025-02-01'
+				}
+			)
+			, '<input type="date" name="when" value="2025-02-01" />'
+		)
+		assert.equal(
+			valueInjector(
+				'<input type="date" name="when"/>',
+				{
+					when: new Date('2025-02-01T00:00:00-06:00')
+				}
+			)
+			, '<input type="date" name="when" value="2025-02-01" />'
+		)
+		assert.equal(
+			valueInjector(
+				'<input type="time" name="when"/>',
+				{
+					when: '23:00:00'
+				}
+			)
+			, '<input type="time" name="when" value="23:00:00" />'
+		)
+		assert.equal(
+			valueInjector(
+				'<input type="time" name="when"/>',
+				{
+					when: new Date("2025-01-31T23:00:00-06:00")
+				}
+			)
+			, '<input type="time" name="when" value="23:00" />'
+		)
+		assert.equal(
+			valueInjector(
+				'<input type="datetime-local" name="when"/>',
+				{
+					when: '2025-01-31T23:00:00-06:00'
+				}
+			)
+			, '<input type="datetime-local" name="when" value="2025-01-31T23:00:00-06:00" />'
+		)
 	})
 	it('text values, special characters', function() {
 		
 		assert.equal(
-			'<input class="form-control" type="text" id="businessName" placeholder="" value="&quot;quotesMc&quot;Quoteson\'s" name="businessName"  />',
 			valueInjector(
 				'<input class="form-control" type="text" id="businessName" placeholder="" value="Test Business" name="businessName"  />',
 				{ 
 					businessName: '"quotesMc"Quoteson\'s'
 				}
 			)
+			, '<input class="form-control" type="text" id="businessName" placeholder="" value="&quot;quotesMc&quot;Quoteson\'s" name="businessName"  />'
 		)
 
 		assert.equal(
-			'<input class="form-control" type="text" id="businessName" placeholder="" value="&quot;quotesMc&quot;Quoteson\'s&lt;&amp;" name="businessName"  />',
 			valueInjector(
 				'<input class="form-control" type="text" id="businessName" placeholder="" value="Test Business" name="businessName"  />',
 				{ 
 					businessName: '"quotesMc"Quoteson\'s<&'
 				}
 			)
+			, '<input class="form-control" type="text" id="businessName" placeholder="" value="&quot;quotesMc&quot;Quoteson\'s&lt;&amp;" name="businessName"  />'
 		)
 	})
 		
